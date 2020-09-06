@@ -1,4 +1,4 @@
-# rails6-compose
+# phx-compose
 
 Docker を用いて Elixir/Phoenix アプリケーションの開発・学習を始めるための設定ファイル等のセット
 
