@@ -6,7 +6,7 @@ docker-compose stop
 rm -rf _build deps
 
 BUILD_CMD="docker-compose build"
-CONTAINER_NAME="web"
+CONTAINER_NAME="web postgres mysql"
 
 case "$OSTYPE" in
   darwin*)

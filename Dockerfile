@@ -1,4 +1,4 @@
-FROM elixir:1.11.3
+FROM elixir:1.11.4
 
 ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 ENV DEBIAN_FRONTEND noninteractive
@@ -10,7 +10,7 @@ RUN apt-get -y install git vim sudo inotify-tools
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
-RUN apt-get -y install nodejs
+RUN apt-get -y install nodejs && npm install -g npm
 
 ARG UID=1000
 ARG GID=1000
@@ -27,4 +27,4 @@ WORKDIR /apps
 
 RUN mix local.hex --force
 RUN mix local.rebar --force
-RUN mix archive.install --force hex phx_new 1.5.7
+RUN mix archive.install --force hex phx_new 1.5.8
