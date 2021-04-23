@@ -3,14 +3,14 @@ services:
   postgres:
     image: postgres:12.6
     volumes:
-      - ./tmp/postgres/data:/var/lib/postgresql/data:cached
+      - postgres-data:/var/lib/postgresql/data:cached
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
   mysql:
     image: mysql:8.0
     volumes:
-      - ./tmp/mysql/data:/var/lib/mysql:cached
+      - mysql-data:/var/lib/mysql:cached
     environment:
       MYSQL_ROOT_PASSWORD: root
   web:
@@ -28,3 +28,8 @@ services:
     depends_on:
       - postgres
       - mysql
+volumes:
+  postgres-data:
+    driver: local
+  mysql-data:
+    driver: local
