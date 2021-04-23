@@ -6,7 +6,7 @@ services:
       - postgres-data:/var/lib/postgresql/data:cached
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: postgres
   mysql:
     image: mysql:8.0
     volumes:
