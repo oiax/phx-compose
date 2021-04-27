@@ -7,10 +7,10 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-  mysql:
-    image: mysql:8.0
+  mariadb:
+    image: mariadb:10.5
     volumes:
-      - mysql-data:/var/lib/mysql:cached
+      - mariadb-data:/var/lib/mysql:cached
     environment:
       MYSQL_ROOT_PASSWORD: root
   web:
@@ -27,9 +27,9 @@ services:
     tty: true
     depends_on:
       - postgres
-      - mysql
+      - mariadb
 volumes:
   postgres-data:
     driver: local
-  mysql-data:
+  mariadb-data:
     driver: local

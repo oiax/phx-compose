@@ -6,7 +6,7 @@ docker-compose stop
 rm -rf _build deps
 
 BUILD_CMD="docker-compose build"
-CONTAINER_NAME="web postgres mysql"
+CONTAINER_NAME="web postgres mariadb"
 
 case "$OSTYPE" in
   darwin*)

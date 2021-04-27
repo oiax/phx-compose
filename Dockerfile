@@ -6,11 +6,17 @@ ENV DEBCONF_NOWARNINGS yes
 
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get -y install git vim sudo inotify-tools
+RUN apt-get -y install git vim sudo inotify-tools mariadb-client
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
 RUN apt-get -y install nodejs && npm install -g npm
+
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | \
+  sudo tee /etc/apt/sources.list.d/pgdg.list
+RUN sudo apt-get update
+RUN sudo apt-get -y install postgresql-client-12
 
 ARG UID=1000
 ARG GID=1000
