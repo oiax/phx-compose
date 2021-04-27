@@ -23,8 +23,10 @@ COPY --chown=devel:devel ./apps /apps
 
 USER devel
 
-WORKDIR /apps
-
 RUN mix local.hex --force
 RUN mix local.rebar --force
 RUN mix archive.install --force hex phx_new 1.5.8
+
+RUN echo alias \
+  elixirc=\"/usr/local/bin/elixirc --ignore-module-conflict\" \
+  >> /home/devel/.bash_aliases
