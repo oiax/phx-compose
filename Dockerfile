@@ -1,4 +1,4 @@
-FROM elixir:1.11.4
+FROM elixir:1.12.1
 
 ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 ENV DEBIAN_FRONTEND noninteractive
