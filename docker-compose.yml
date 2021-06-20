@@ -17,7 +17,6 @@ services:
     build: .
     command: bash
     environment:
-      MIX_ENV: "dev"
       PORT: "4000"
     volumes:
       - ./apps:/apps
